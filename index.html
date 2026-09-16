@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WanderSiam premium DMC tour-page template based on the approved typography and colour direction.">
+  <title>Grand Palace &amp; Temples of Bangkok | WanderSiam Premium DMC Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ws-blue: #0875c1;
+      --ws-blue-dark: #075c98;
+      --text: #2b2b2b;
+      --muted: #666b70;
+      --soft: #f5f6f7;
+      --warm: #f7f4ee;
+      --surface: #ffffff;
+      --line: #dfe3e6;
+      --line-strong: #cbd2d7;
+      --focus: #55b8e6;
+      --success: #16725d;
+      --content: min(1400px, calc(100% - 64px));
+      --radius-small: 8px;
+      --radius: 14px;
+      --shadow: 0 14px 36px rgba(28, 44, 58, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--text);
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid rgba(85, 184, 230, .72); outline-offset: 3px; }
+    .shell { width: var(--content); margin-inline: auto; }
+    .svg-icon { width: 22px; height: 22px; flex: 0 0 auto; color: var(--ws-blue); }
+
+    .preview-note {
+      margin: 0;
+      padding: 7px 18px;
+      background: #24404f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .035em;
+      text-align: center;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 50;
+      border-bottom: 1px solid #edf0f2;
+      background: rgba(255, 255, 255, .98);
+    }
+    .nav-row {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 34px;
+    }
+    .brand { width: 236px; flex: 0 0 auto; }
+    .brand img { height: 66px; object-fit: contain; object-position: left center; }
+    .desktop-nav { display: flex; align-items: center; gap: 31px; color: var(--ws-blue-dark); font-size: 15px; font-weight: 700; }
+    .desktop-nav a { padding: 8px 0 6px; border-bottom: 1px solid transparent; }
+    .desktop-nav a:hover { border-color: var(--ws-blue); }
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--ws-blue-dark);
+    }
+    .icon-button:hover { background: #f0f6fa; }
+    .menu-button, .mobile-menu { display: none; }
+
+    .tour-page { padding: 32px 0 0; }
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .breadcrumbs a { color: var(--ws-blue-dark); }
+    .tour-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 378px;
+      align-items: start;
+      gap: 52px;
+    }
+    .tour-main { min-width: 0; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 11px;
+      color: var(--ws-blue-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .085em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 30px; height: 1px; content: ""; background: var(--ws-blue); }
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(42px, 4.3vw, 64px);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -.045em;
+    }
+    .tour-intro {
+      max-width: 850px;
+      margin: 20px 0 28px;
+      color: #444;
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.55;
+    }
+
+    .facts-bar {
+      display: grid;
+      grid-template-columns: .95fr .85fr 1.35fr 1.2fr 1fr;
+      margin: 0 0 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(28, 44, 58, .055);
+    }
+    .fact {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: 25px minmax(0, 1fr);
+      align-content: center;
+      gap: 13px;
+      min-height: 112px;
+      padding: 19px 22px;
+    }
+    .fact + .fact { border-left: 1px solid var(--line); }
+    .fact-content { min-width: 0; align-self: center; }
+    .fact-label {
+      display: block;
+      margin-bottom: 4px;
+      color: #64727c;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .075em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+    .fact-value { display: block; color: var(--text); font-size: 16px; font-weight: 600; line-height: 1.35; }
+    .fact-subvalue { display: block; color: #4c5358; font-size: 13px; font-weight: 500; line-height: 1.35; }
+    .rating-value { display: flex; align-items: baseline; gap: 5px; }
+    .rating-value strong { font-size: 18px; }
+
+    .gallery {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.36fr .78fr;
+      gap: 6px;
+      height: 560px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #e8ebed;
+    }
+    .gallery-main, .gallery-tile { min-width: 0; min-height: 0; overflow: hidden; border: 0; padding: 0; background: #e2e5e7; }
+    .gallery-side { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; }
+    .gallery-side .gallery-tile:first-child { grid-column: 1 / -1; }
+    .gallery img { height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .gallery button:hover img { transform: scale(1.025); }
+    .gallery-action {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 15px;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: var(--radius-small);
+      background: rgba(255, 255, 255, .92);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    .booking-wrap { position: sticky; top: 24px; }
+    .booking-card {
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .booking-main { padding: 25px; }
+    .booking-label { display: block; color: #5f6a70; font-size: 12px; font-weight: 700; }
+    .booking-price { display: flex; align-items: baseline; gap: 7px; margin: 2px 0 20px; }
+    .booking-price strong { color: var(--text); font-size: 29px; line-height: 1.15; }
+    .booking-price small { color: var(--text); font-size: 12px; font-weight: 600; }
+    .control {
+      width: 100%;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 0 16px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: #eef1f3;
+      color: var(--text);
+      font-weight: 700;
+      text-align: left;
+    }
+    .control:hover { border-color: #c9d9e3; }
+    .control svg { width: 20px; height: 20px; color: var(--ws-blue); }
+    .booking-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      min-height: 50px;
+      margin-top: 12px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: #5f6870;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .booking-total strong { color: var(--ws-blue-dark); font-size: 19px; }
+    .availability {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 13px;
+      border: 0;
+      border-radius: var(--radius-small);
+      background: var(--ws-blue);
+      color: #fff;
+      font-weight: 700;
+    }
+    .availability:hover { background: var(--ws-blue-dark); }
+    .booking-trust { display: grid; gap: 14px; padding: 19px 25px 23px; border-top: 1px solid var(--line); background: #fafbfb; }
+    .trust-item { display: grid; grid-template-columns: 21px 1fr; gap: 10px; color: #5b6267; font-size: 13px; line-height: 1.45; }
+    .trust-icon { width: 20px; height: 20px; display: grid; place-items: center; margin-top: 1px; border: 1px solid var(--ws-blue); border-radius: 50%; color: var(--ws-blue); font-size: 12px; font-weight: 700; }
+    .trust-item strong { display: block; color: var(--text); font-size: 13px; }
+    .interface-note { margin: 10px 0 0; color: #757b80; font-size: 11px; line-height: 1.45; }
+
+    .reading-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 378px;
+      gap: 52px;
+      padding-top: 68px;
+    }
+    .story-column { min-width: 0; }
+    .section { padding: 0 0 62px; margin-bottom: 62px; border-bottom: 1px solid var(--line); }
+    .section:last-child { margin-bottom: 0; }
+    .section-kicker { margin: 0 0 9px; color: var(--ws-blue-dark); font-size: 12px; font-weight: 700; letter-spacing: .075em; text-transform: uppercase; }
+    .section h2 {
+      max-width: 780px;
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(31px, 3.1vw, 46px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    .section h3 { margin: 0; color: var(--text); font-size: 20px; font-weight: 700; line-height: 1.3; }
+    .section p { max-width: 780px; margin: 21px 0 0; color: #363636; font-size: 17px; line-height: 1.75; }
+    .lead { font-size: 19px !important; line-height: 1.7 !important; }
+    .local-note {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-top: 33px;
+      padding: 22px;
+      border: 1px solid #e1ddd5;
+      background: var(--warm);
+    }
+    .local-note img { height: 180px; object-fit: cover; }
+    .local-note blockquote { margin: 0; color: var(--text); font-size: 18px; font-weight: 500; line-height: 1.55; }
+    .local-note cite { display: block; margin-top: 12px; color: #62666a; font-size: 13px; font-style: normal; }
+
+    .route { position: relative; display: grid; gap: 0; margin-top: 32px; }
+    .route::before { position: absolute; top: 25px; bottom: 25px; left: 22px; width: 1px; content: ""; background: #b8cbd7; }
+    .route-stop { position: relative; display: grid; grid-template-columns: 46px 1fr; gap: 19px; padding-bottom: 31px; }
+    .route-stop:last-child { padding-bottom: 0; }
+    .route-number { position: relative; z-index: 1; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid #9ebdce; border-radius: 50%; background: #fff; color: var(--ws-blue-dark); font-size: 13px; font-weight: 700; }
+    .route-stop p { margin: 6px 0 0; color: #52575b; font-size: 15px; line-height: 1.6; }
+
+    .include-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 31px; }
+    .include-list { display: grid; gap: 12px; margin: 15px 0 0; padding: 0; list-style: none; }
+    .include-list li { display: grid; grid-template-columns: 19px 1fr; gap: 10px; color: #3f4346; font-size: 15px; }
+    .mark { color: var(--ws-blue); font-weight: 700; }
+
+    .faq { margin-top: 29px; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 19px 0; color: var(--text); font-size: 16px; font-weight: 700; cursor: pointer; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--ws-blue); font-size: 21px; font-weight: 400; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 0; padding: 0 36px 20px 0; color: #52575b; font-size: 15px; line-height: 1.65; }
+    .reading-spacer { min-height: 1px; }
+
+    .people-section { margin-top: 90px; padding: 78px 0; background: var(--warm); }
+    .people-grid { display: grid; grid-template-columns: minmax(240px, .82fr) minmax(430px, 1.36fr) minmax(240px, .82fr); align-items: start; gap: 34px; }
+    .people-photo { margin: 0; }
+    .people-photo img { height: 420px; object-fit: cover; }
+    .people-photo figcaption { margin-top: 9px; color: #666b70; font-size: 12px; }
+    .people-copy { padding-top: 8px; }
+    .people-copy .section-kicker { margin-bottom: 12px; }
+    .people-copy h2 { margin: 0; color: var(--text); font-size: clamp(30px, 3vw, 44px); line-height: 1.12; letter-spacing: -.035em; }
+    .people-copy p { margin: 19px 0 0; color: #363636; font-size: 16px; line-height: 1.75; }
+    .people-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 27px; padding-top: 22px; border-top: 1px solid #d8d2c8; }
+    .people-facts strong { display: block; color: var(--text); font-size: 18px; }
+    .people-facts span { display: block; margin-top: 2px; color: #61666a; font-size: 12px; line-height: 1.45; }
+
+    .tailor-cta { padding: 64px 0; background: #223d4d; color: #fff; }
+    .tailor-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); align-items: center; gap: 56px; }
+    .tailor-cta .section-kicker { color: #9edaf3; }
+    .tailor-cta h2 { max-width: 760px; margin: 0; color: #fff; font-size: clamp(32px, 3.5vw, 52px); line-height: 1.08; letter-spacing: -.035em; }
+    .tailor-action p { margin: 0 0 18px; color: rgba(255, 255, 255, .82); font-size: 15px; }
+    .tailor-link { min-height: 50px; display: inline-flex; align-items: center; padding: 0 19px; border-radius: var(--radius-small); background: var(--ws-blue); color: #fff; font-size: 14px; font-weight: 700; }
+    .tailor-link:hover { background: #0a83d3; }
+
+    .footer { padding: 35px 0; background: #182d38; color: rgba(255, 255, 255, .76); }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 32px; font-size: 12px; }
+    .footer-logo { width: 190px; filter: brightness(0) invert(1); opacity: .95; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 20px; }
+
+    .lightbox[hidden] { display: none; }
+    .lightbox { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(20, 29, 34, .94); }
+    .lightbox img { max-width: min(1120px, 92vw); max-height: 84vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .65); border-radius: 50%; background: transparent; color: #fff; font-size: 22px; }
+
+    @media (max-width: 1380px) {
+      :root { --content: min(1060px, calc(100% - 40px)); }
+      .tour-layout, .reading-grid { grid-template-columns: minmax(0, 1fr) 340px; gap: 34px; }
+      .facts-bar { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .fact:nth-child(1), .fact:nth-child(2) { grid-column: span 3; }
+      .fact:nth-child(3), .fact:nth-child(4), .fact:nth-child(5) { grid-column: span 6; }
+      .fact:nth-child(4), .fact:nth-child(5) { border-top: 1px solid var(--line); }
+      .fact:nth-child(4) { border-left: 0; }
+      .gallery { height: 510px; }
+      .desktop-nav { gap: 19px; font-size: 14px; }
+    }
+
+    @media (max-width: 860px) {
+      :root { --content: calc(100% - 30px); }
+      .nav-row { min-height: 74px; }
+      .brand { width: 194px; }
+      .brand img { height: 56px; }
+      .desktop-nav { display: none; }
+      .menu-button { display: inline-grid; }
+      .mobile-menu { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .22s ease; }
+      .mobile-menu.open { grid-template-rows: 1fr; }
+      .mobile-menu-inner { min-height: 0; width: var(--content); display: grid; margin: auto; }
+      .mobile-menu a { padding: 13px 2px; border-top: 1px solid var(--line); color: var(--ws-blue-dark); font-weight: 700; }
+      .tour-page { padding-top: 24px; }
+      .tour-layout { display: flex; flex-direction: column; }
+      .tour-main { width: 100%; }
+      .booking-wrap { position: static; width: 100%; order: 2; }
+      .booking-card { width: min(520px, 100%); margin-inline: auto; }
+      .facts-bar { grid-template-columns: 1fr 1fr; }
+      .fact { grid-column: auto !important; }
+      .fact:nth-child(3) { border-top: 1px solid var(--line); border-left: 0; }
+      .fact:nth-child(4) { border-left: 1px solid var(--line); }
+      .fact:nth-child(5) { grid-column: 1 / -1 !important; border-left: 0; }
+      .gallery { height: 470px; }
+      .reading-grid { display: block; padding-top: 64px; }
+      .reading-spacer { display: none; }
+      .people-grid { grid-template-columns: 1fr 1fr; }
+      .people-copy { grid-column: 1 / -1; grid-row: 1; max-width: 720px; }
+      .people-photo:last-child { display: block; }
+      .tailor-inner { grid-template-columns: 1fr; gap: 26px; }
+    }
+
+    @media (max-width: 560px) {
+      :root { --content: calc(100% - 22px); }
+      .preview-note { padding-inline: 8px; font-size: 10px; }
+      .breadcrumbs { margin-bottom: 18px; font-size: 12px; }
+      h1 { font-size: 38px; line-height: 1.05; }
+      .tour-intro { margin: 17px 0 23px; font-size: 16px; }
+      .facts-bar { display: grid; grid-template-columns: 1fr 1fr; }
+      .fact { min-height: 100px; grid-template-columns: 21px minmax(0, 1fr); gap: 10px; padding: 16px 13px; }
+      .fact + .fact { border-left: 0; }
+      .fact:nth-child(even) { border-left: 1px solid var(--line); }
+      .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .fact:nth-child(5) { grid-column: 1 / -1 !important; }
+      .fact-label { font-size: 10px; }
+      .fact-value { font-size: 14px; }
+      .fact-subvalue { font-size: 12px; }
+      .gallery { grid-template-columns: 1fr; height: 390px; }
+      .gallery-main { height: 245px; }
+      .gallery-side { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 139px; }
+      .gallery-side .gallery-tile:first-child { grid-column: auto; }
+      .gallery-action { right: 11px; bottom: 11px; min-height: 38px; }
+      .booking-main { padding: 22px; }
+      .booking-trust { padding-inline: 22px; }
+      .reading-grid { padding-top: 54px; }
+      .section { padding-bottom: 50px; margin-bottom: 50px; }
+      .section h2 { font-size: 31px; }
+      .section p, .lead { font-size: 16px !important; }
+      .local-note { grid-template-columns: 1fr; padding: 16px; }
+      .local-note img { height: 230px; }
+      .include-grid { grid-template-columns: 1fr; gap: 34px; }
+      .people-section { margin-top: 64px; padding: 54px 0; }
+      .people-grid { display: block; }
+      .people-copy { margin-bottom: 29px; }
+      .people-photo + .people-photo { margin-top: 22px; }
+      .people-photo img { height: 300px; }
+      .people-facts { grid-template-columns: 1fr; }
+      .tailor-cta { padding: 50px 0; }
+      .tailor-cta h2 { font-size: 34px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .footer-links { justify-content: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-note">DESIGN TEMPLATE · No Production content or booking logic has been changed</p>
+
+  <header class="site-header">
+    <div class="shell nav-row">
+      <a class="brand" href="https://wandersiam.com/" aria-label="WanderSiam home">
+        <img src="https://wandersiam.com/wp-content/uploads/2026/06/Logo-WanderSiam-01.png" alt="WanderSiam - Local Travel Experts">
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="https://wandersiam.com/join-tour/">Join Tour</a>
+        <a href="https://wandersiam.com/customize-tour/">Private Tour</a>
+        <a href="https://wandersiam.com/tailor-made-tour/">Tailor-Made</a>
+        <a href="https://wandersiam.com/about-page/">About</a>
+        <a href="https://wandersiam.com/contact/">Contact</a>
+        <button class="icon-button" type="button" aria-label="Search tours">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.8-3.8"></path></svg>
+        </button>
+      </nav>
+      <button class="icon-button menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <div class="mobile-menu-inner">
+        <a href="https://wandersiam.com/join-tour/">Join Tour</a>
+        <a href="https://wandersiam.com/customize-tour/">Private Tour</a>
+        <a href="https://wandersiam.com/tailor-made-tour/">Tailor-Made</a>
+        <a href="https://wandersiam.com/about-page/">About</a>
+        <a href="https://wandersiam.com/contact/">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="shell tour-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="https://wandersiam.com/">Home</a><span>/</span><a href="https://wandersiam.com/join-tour/">Join Tour</a><span>/</span><span>Bangkok</span>
+      </nav>
+
+      <div class="tour-layout">
+        <div class="tour-main">
+          <p class="eyebrow">Bangkok · Small group tour</p>
+          <h1>Grand Palace &amp; Temples of Bangkok</h1>
+          <p class="tour-intro">Explore Bangkok’s historic heart with a local guide who connects the city’s most celebrated temples with the people, traditions and everyday stories around them.</p>
+
+          <section class="facts-bar" aria-label="Tour details">
+            <div class="fact">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 13 11 22l-9-9V4h9l9 9Z"></path><circle cx="7.5" cy="8.5" r="1.5"></circle></svg>
+              <div class="fact-content"><span class="fact-label">Price</span><span class="fact-value">From THB 680</span></div>
+            </div>
+            <div class="fact">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+              <div class="fact-content"><span class="fact-label">Duration</span><span class="fact-value">4 hours</span></div>
+            </div>
+            <div class="fact">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <div class="fact-content"><span class="fact-label">Group size</span><span class="fact-value">Any group size</span><span class="fact-subvalue">Max 12 guests per booking</span></div>
+            </div>
+            <div class="fact">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m16 8-2 6-6 2 2-6 6-2Z"></path></svg>
+              <div class="fact-content"><span class="fact-label">Tour type</span><span class="fact-value">City &amp; cultural tour</span></div>
+            </div>
+            <div class="fact">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 2 3 6.2 6.8 1-4.9 4.8 1.1 6.8-6-3.2-6 3.2 1.1-6.8-4.9-4.8 6.8-1L12 2Z"></path></svg>
+              <div class="fact-content"><span class="fact-label">Guest rating</span><span class="fact-value rating-value"><strong>4.9/5</strong></span><span class="fact-subvalue">158 reviews</span></div>
+            </div>
+          </section>
+
+          <section class="gallery" aria-label="Tour gallery">
+            <button class="gallery-main" type="button" data-image="https://wandersiam.com/wp-content/uploads/2023/03/wat-phra-kaew-temple-emerald-buddha-grand-palace-bangkok-1-960x450.jpg" aria-label="Open Grand Palace photograph">
+              <img src="https://wandersiam.com/wp-content/uploads/2023/03/wat-phra-kaew-temple-emerald-buddha-grand-palace-bangkok-1-960x450.jpg" alt="Grand Palace and Wat Phra Kaew in Bangkok">
+            </button>
+            <div class="gallery-side">
+              <button class="gallery-tile" type="button" data-image="https://wandersiam.com/wp-content/uploads/2023/03/8-3-1-960x450.jpg" aria-label="Open temple detail photograph"><img src="https://wandersiam.com/wp-content/uploads/2023/03/8-3-1-960x450.jpg" alt="Detailed temple decoration at the Grand Palace"></button>
+              <button class="gallery-tile" type="button" data-image="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok7-600x450.jpg" aria-label="Open guest photograph"><img src="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok7-600x450.jpg" alt="WanderSiam guest visiting a Bangkok temple"></button>
+              <button class="gallery-tile" type="button" data-image="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok8-600x450.jpg" aria-label="Open river photograph"><img src="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok8-600x450.jpg" alt="Guests by the Chao Phraya River in Bangkok"></button>
+            </div>
+            <button class="gallery-action" type="button" data-open-first>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+              View all photos
+            </button>
+          </section>
+        </div>
+
+        <aside class="booking-wrap" aria-label="Book this tour">
+          <div class="booking-card">
+            <div class="booking-main">
+              <span class="booking-label">From</span>
+              <div class="booking-price"><strong>THB 680</strong><small>per person</small></div>
+              <button class="control" type="button"><span>1 Adult</span><span aria-hidden="true">⌄</span></button>
+              <div class="booking-total"><span>Total</span><strong>THB 680</strong></div>
+              <button class="control" type="button" aria-label="Selected date 17 September 2026">
+                <span>17-09-2026</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>
+              </button>
+              <button class="availability" type="button">Check Availability</button>
+            </div>
+            <div class="booking-trust">
+              <div class="trust-item"><span class="trust-icon" aria-hidden="true">✓</span><span><strong>Free cancellation</strong>Cancel up to 24 hours before the tour for a full refund.</span></div>
+              <div class="trust-item"><span class="trust-icon" aria-hidden="true">✓</span><span><strong>Secure online payment</strong>Your payment is processed securely at checkout.</span></div>
+            </div>
+          </div>
+          <p class="interface-note">Design preview only. Live dates, prices, travellers and checkout remain controlled by BABE.</p>
+        </aside>
+      </div>
+
+      <div class="reading-grid">
+        <article class="story-column">
+          <section class="section" aria-labelledby="overview-title">
+            <p class="section-kicker">The experience</p>
+            <h2 id="overview-title">Bangkok’s royal and spiritual heart, shared by someone who lives here.</h2>
+            <p class="lead">This is more than a checklist of famous landmarks. Your local guide brings together the architecture, customs and everyday stories that help Bangkok’s sacred places make sense.</p>
+            <p>Begin inside the Grand Palace and Wat Phra Kaew, home to the highly revered Emerald Buddha. Continue to Wat Pho and its monumental Reclining Buddha before crossing the Chao Phraya River by local ferry to Wat Arun.</p>
+            <p>The pace is comfortable, the group is kept personal, and there is time to notice the details that are easy to miss when visiting alone.</p>
+            <div class="local-note">
+              <img src="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok6-600x450.jpg" alt="A WanderSiam local guide with guests in Bangkok">
+              <div><blockquote>“The temples are spectacular, but the small customs and stories are what help visitors understand why these places still matter today.”</blockquote><cite>Local guide note · WanderSiam Bangkok team</cite></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="route-title">
+            <p class="section-kicker">Your route</p>
+            <h2 id="route-title">A thoughtful half-day through old Bangkok.</h2>
+            <div class="route">
+              <div class="route-stop"><span class="route-number">01</span><div><h3>Grand Palace &amp; Wat Phra Kaew</h3><p>Meet near the river and begin inside Bangkok’s most important royal and sacred complex.</p></div></div>
+              <div class="route-stop"><span class="route-number">02</span><div><h3>Wat Pho</h3><p>Walk through one of the city’s oldest temple grounds and see the Reclining Buddha.</p></div></div>
+              <div class="route-stop"><span class="route-number">03</span><div><h3>Local ferry &amp; Wat Arun</h3><p>Cross the Chao Phraya and finish below the porcelain-covered Temple of Dawn.</p></div></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="include-title">
+            <p class="section-kicker">Clear before you book</p>
+            <h2 id="include-title">What is included.</h2>
+            <div class="include-grid">
+              <div><h3>Included</h3><ul class="include-list"><li><span class="mark">✓</span><span>English-speaking local guide</span></li><li><span class="mark">✓</span><span>One bottle of drinking water</span></li><li><span class="mark">✓</span><span>Ferry crossing to and from Wat Arun</span></li></ul></div>
+              <div><h3>Not included</h3><ul class="include-list"><li><span class="mark">–</span><span>Temple entrance fees</span></li><li><span class="mark">–</span><span>Hotel transfers</span></li><li><span class="mark">–</span><span>Personal expenses and gratuities</span></li></ul></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-title">
+            <p class="section-kicker">Practical details</p>
+            <h2 id="faq-title">Good to know.</h2>
+            <div class="faq">
+              <details open><summary>What should I wear?</summary><p>Shoulders and ankles must be covered when visiting the Grand Palace and temples. Comfortable walking shoes are recommended.</p></details>
+              <details><summary>When will I receive confirmation?</summary><p>You will receive confirmation by email with meeting instructions after your booking has been reviewed.</p></details>
+              <details><summary>Can I change or cancel my booking?</summary><p>You may reschedule or cancel for a full refund up to 24 hours before the tour start time.</p></details>
+              <details><summary>What happens if it rains?</summary><p>The tour operates rain or shine. Tropical showers are often brief, so a light raincoat or poncho is useful in the rainy season.</p></details>
+            </div>
+          </section>
+        </article>
+        <div class="reading-spacer" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <section class="people-section" aria-labelledby="people-title">
+      <div class="shell people-grid">
+        <figure class="people-photo">
+          <img src="https://wandersiam.com/wp-content/uploads/2023/03/Grand-Palace-Temples-of-Bangkok6-600x450.jpg" alt="A WanderSiam local guide speaking with guests">
+          <figcaption>A local guide, not a recorded commentary.</figcaption>
+        </figure>
+        <div class="people-copy">
+          <p class="section-kicker">Local travel experts</p>
+          <h2 id="people-title">Planned in Thailand, with care for the people travelling with us.</h2>
+          <p>WanderSiam is a Thai-Dutch tour company with a local team on the ground. We arrange considered day tours, private experiences and tailor-made journeys for travellers and overseas partners who value clear communication, reliable service and real local knowledge.</p>
+          <p>We keep the experience personal: practical details are handled carefully, and every itinerary is shaped around how people actually want to travel.</p>
+          <div class="people-facts"><div><strong>Thai-Dutch team</strong><span>Local knowledge with an international service perspective.</span></div><div><strong>Based in Thailand</strong><span>Support before, during and after the journey.</span></div></div>
+        </div>
+        <figure class="people-photo">
+          <img src="https://wandersiam.com/wp-content/uploads/2023/03/067d5304b919f8250883894c01ed924b-960x450.jpg" alt="Wat Arun and the Chao Phraya River in Bangkok">
+          <figcaption>The places we know and work in every day.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="tailor-cta">
+      <div class="shell tailor-inner">
+        <div><p class="section-kicker">Tailor-made Thailand</p><h2>Need more than a day tour? Let us shape the journey around you.</h2></div>
+        <div class="tailor-action"><p>For couples, families, private groups and overseas travel partners planning a multi-day or multi-week trip.</p><a class="tailor-link" href="https://wandersiam.com/tailor-made-tour/">Talk to a local expert →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-row">
+      <img class="footer-logo" src="https://wandersiam.com/wp-content/uploads/2026/06/Logo-WanderSiam-01.png" alt="WanderSiam">
+      <div class="footer-links"><a href="https://wandersiam.com/join-tour/">Join Tour</a><a href="https://wandersiam.com/customize-tour/">Private Tour</a><a href="https://wandersiam.com/tailor-made-tour/">Tailor-Made</a><a href="https://wandersiam.com/contact/">Contact</a><span>Concept preview · Not connected to Production</span></div>
+    </div>
+  </footer>
+
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Tour photograph">
+    <button class="lightbox-close" type="button" data-close aria-label="Close photograph">×</button>
+    <img data-lightbox-image alt="Expanded tour photograph">
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('[data-menu]');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      mobileMenu.classList.toggle('open', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+
+    const lightbox = document.querySelector('[data-lightbox]');
+    const lightboxImage = document.querySelector('[data-lightbox-image]');
+    const closeButton = document.querySelector('[data-close]');
+    const galleryButtons = [...document.querySelectorAll('[data-image]')];
+    let previousFocus;
+    function openImage(button) {
+      previousFocus = button;
+      lightboxImage.src = button.dataset.image;
+      lightboxImage.alt = button.querySelector('img')?.alt || 'Tour photograph';
+      lightbox.hidden = false;
+      document.body.classList.add('menu-open');
+      closeButton.focus();
+    }
+    function closeImage() {
+      lightbox.hidden = true;
+      lightboxImage.removeAttribute('src');
+      document.body.classList.remove('menu-open');
+      previousFocus?.focus();
+    }
+    galleryButtons.forEach(button => button.addEventListener('click', () => openImage(button)));
+    document.querySelector('[data-open-first]').addEventListener('click', () => openImage(galleryButtons[0]));
+    closeButton.addEventListener('click', closeImage);
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) closeImage(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !lightbox.hidden) closeImage(); });
+  </script>
+</body>
+</html>
